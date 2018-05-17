@@ -1,0 +1,3 @@
+import tictactoe
+
+tictactoe.run()

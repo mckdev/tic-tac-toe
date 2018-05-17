@@ -1,0 +1,20 @@
+{
+    "grid": {
+        "size": 3
+    },
+    
+    "players": {
+        "Player 1":{
+            "char": "00",
+            "ai": false
+        },
+        "Player 2":{
+            "char": "X",
+            "ai": false
+        },
+        "Player 3":{
+            "char": "V",
+            "ai": true
+        }
+    }
+}

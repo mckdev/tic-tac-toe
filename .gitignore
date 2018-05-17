@@ -1,0 +1,6 @@
+.pytest_*
+__pycache__
+.vscode/
+.coverage
+*.egg-*
+config.json
