@@ -22,13 +22,16 @@ Go to project root and run:
 ## Development Installation
 Go to project root and run:
 `pip install . -e`
+
 Now you can import the game from anywhere with:
 `import tictactoe`
+
 You can also run it from command line with:
 `ttt`
 
 ## Testing
 Make sure pytest is installed:
 `pip install -U pytest`
+
 Navigate to project root and run:
 `pytest -v`
