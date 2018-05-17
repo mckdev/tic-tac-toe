@@ -1,3 +1,3 @@
 import tictactoe
 
-tictactoe.run()
+tictactoe.__main__.main()

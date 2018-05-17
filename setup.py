@@ -6,12 +6,9 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
-    install_requires=[
-        'pytest',
-    ],
     entry_points = {
         'console_scripts': [
-            'ttt = tictactoe:run'
+            'ttt = tictactoe.__main__:main'
         ]
     },
 )

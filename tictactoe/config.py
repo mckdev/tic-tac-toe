@@ -1,4 +1,5 @@
 import json
+import os.path
 import sys
 from collections import UserDict
 from json import JSONDecodeError
@@ -12,11 +13,14 @@ class GameConfig(UserDict):
 
     def from_json(self, filename):
         try:
-            with open(filename, 'r') as f:
+            project_path = os.path.abspath(os.path.dirname(__file__))
+            config_path = os.path.join(project_path, '../' + filename)
+            with open(config_path, 'r') as f:
                 config = json.load(f)
                 return config
         except JSONDecodeError as e:
-            print('There was a problem with parsing your config file. Check your config.json for errors or use the config from config-example.json.')
+            print('There was a problem with parsing your config file.',
+                  'Check your config.json for errors or use the config from config-example.json.')
             return
         except FileNotFoundError as e:
             print('Couldn\'t load config file. Did you create config.json in project root?')

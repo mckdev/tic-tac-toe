@@ -11,7 +11,9 @@ Tic-Tac-Toe game written in Python 3.
 - Python 3
 - pytest (for testing)
 
-## Quick Start
+## Development
+
+### Quick Start
 Create `config.json` file in project root and copy the contents from `config_example.py`.
 
 *Note:* Don't delete/modify `config_example.py` - it is used for tests.
@@ -19,19 +21,37 @@ Create `config.json` file in project root and copy the contents from `config_exa
 Go to project root and run:
 `python run.py`
 
-## Development Installation
-Go to project root and run:
-`pip install . -e`
+### Development Installation
+Create a new virtualenv, go to project root and run:
+`python install setup.py`
 
-Now you can import the game from anywhere with:
-`import tictactoe`
-
-You can also run it from command line with:
+Now you can run the game from anywhere with:
 `ttt`
 
-## Testing
+Or import it with:
+`import tictactoe`
+
+### Testing
 Make sure pytest is installed:
-`pip install -U pytest`
+`pip install pytest`
 
 Navigate to project root and run:
 `pytest -v`
+
+For test coverage install pytest-cov:
+`pip install pytest-cov`
+
+Run the tests with:
+`pytest -v --cov=tictactoe`
+
+## Deployment
+Clone project on target machine, go to project root and run:
+`python setup.py install`
+
+After installation, you should see the `site-packages` folder, where the game was installed on your system.
+
+For example: `C:\Users\m\AppData\Local\Programs\Python\Python36-32\Lib\site-packages\tictactoe-1.0.0-py3.6.egg`
+
+Create `config.json` file in this directory, copying the config from `config_example.json` and modifying as you wish.
+
+Start the game fro anywhere in your system with: `ttt`.
