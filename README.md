@@ -44,6 +44,27 @@ For test coverage install pytest-cov:
 Run the tests with:
 `pytest -v --cov=tictactoe`
 
+### API
+To run the game from another application, you can follow these steps:
+
+```
+>>> from tictactoe import GameConfig
+>>> config = GameConfig('config.json')
+Loading config from file ...
+>>> config.is_valid()
+True
+>>> game = Game(config)
+Starting new game ...
+Initializing 10x10 grid ...
+Initializing Player @  ...
+Initializing Player *  ...
+Initializing Player #  ...
+Initializing Referee ...
+>>> game.run()
+```
+
+Note that GameConfig will look for `config.json` in the project or installation root, i.e. one level above `config.py`.
+
 ## Deployment
 Clone project on target machine, go to project root and run:
 `python setup.py install`
