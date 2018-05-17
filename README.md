@@ -54,4 +54,4 @@ For example: `C:\Users\m\AppData\Local\Programs\Python\Python36-32\Lib\site-pack
 
 Create `config.json` file in this directory, copying the config from `config_example.json` and modifying as you wish.
 
-Start the game fro anywhere in your system with: `ttt`.
+Start the game from anywhere in your system with: `ttt`.
