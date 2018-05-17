@@ -14,7 +14,7 @@ Tic-Tac-Toe game written in Python 3.
 ## Quick Start
 Create `config.json` file in project root and copy the contents from `config_example.py`.
 
-Note: Don't delete nor modify `example_config.py` - it is used for tests.
+*Note:* Don't delete/modify `config_example.py` - it is used for tests.
 
 Go to project root and run:
 `python run.py`
