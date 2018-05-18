@@ -9,12 +9,21 @@ def game():
     game = Game(config)
     yield game
 
-
 @pytest.fixture()
 def referee(game):
     referee = Referee(game)
     yield referee
 
+@pytest.fixture()
+def game_with_corners_win():
+    config = GameConfig('tictactoe/tests/configs/config_corners_win.json')
+    game = Game(config)
+    yield game
+
+@pytest.fixture()
+def referee_for_corners_win_game(game_with_corners_win):
+    referee = Referee(game_with_corners_win)
+    yield referee
 
 class TestReferee:
     """Tests tictactoe.referee.Referee class methods."""
@@ -113,6 +122,26 @@ class TestReferee:
             assert referee.check_for_winner()
         captured = capsys.readouterr()
         assert '@ IS THE WINNER' in captured.out
+
+        # Corners
+        referee.grid.data = [
+            ['X','@','X'],
+            ['O','Y','O'],
+            ['X','@','X']
+        ]
+        assert not referee.check_for_winner()
+
+    def test_referee_check_for_corners_win(self, capsys, referee_for_corners_win_game):
+        # Corners
+        referee_for_corners_win_game.grid.data = [
+            ['X','@','X'],
+            ['O','Y','O'],
+            ['X','@','X']
+        ]
+        with pytest.raises(SystemExit):
+            assert referee_for_corners_win_game.check_for_winner()
+        captured = capsys.readouterr()
+        assert 'X IS THE WINNER' in captured.out
 
     def test_referee_check_for_full_grid(self, capsys, referee):
         """Tests Referee.check_for_full_grid method"""

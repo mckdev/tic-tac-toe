@@ -1,6 +1,7 @@
 {
     "grid": {
-        "size: 10
+        "size: 10,
+        "win_condition": "standard"
     },
     
     "players": {

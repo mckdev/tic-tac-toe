@@ -89,6 +89,16 @@ class Referee:
         Remaining positions are checked against all adjacent positions.
         """
         grid = self.grid
+
+        if self.game.config['grid']['win_condition'] == 'corners':
+            if self.corners_check():
+                self.grid.show()
+                print('{} IS THE WINNER!'.format(grid[0][0]))
+                print('\nGame finished in {} turns.'\
+                        .format(self.game.completed_turns))
+                sys.exit()
+
+
         for x in range(grid.size):
             for y in range(grid.size):
                 if len(grid[x][y]) > 0: # Only check if position is taken
@@ -173,6 +183,13 @@ class Referee:
         grid = self.grid
         if grid[x][y] == grid[x-1][y-1] == grid[x+1][y+1] or \
            grid[x][y] == grid[x-1][y+1] == grid[x+1][y-1]:
+            return True
+
+    def corners_check(self):
+        """Exits the game if four corners are occupied by the same char."""
+        grid = self.grid
+        if grid[0][0] == grid[grid.size - 1][grid.size - 1] == \
+           grid[grid.size - 1][0] == grid[0][grid.size - 1]:
             return True
 
     def check_for_full_grid(self):

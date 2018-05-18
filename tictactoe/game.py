@@ -13,7 +13,7 @@ class Game:
         self.init_grid()
         self.init_players()
         self.init_referee()
-        
+
     def init_grid(self):
         self.grid = Grid(self.config['grid']['size'])
 

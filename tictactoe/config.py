@@ -53,6 +53,7 @@ class GameConfig(UserDict):
     def is_valid(self):
         """Runs all validations on the config file and returns True if they pass."""
         grid_size = self.validate_grid_size(self.data)
+        win_condition = self.validate_win_condition(self.data)
         players = self.validate_players(self.data)
         chars = self.validate_player_chars(players)
         ai_settings = self.validate_ai_settings(players)
@@ -84,6 +85,22 @@ class GameConfig(UserDict):
         except Exception as e:
             print(type(e).__name__, e)
             sys.exit(1)  
+
+    def validate_win_condition(self, config):
+        try:
+            condition = config['grid']['win_condition']
+            if condition == 'standard':
+                return condition
+            elif condition == 'corners':
+                return condition
+            else:
+                print('Setting "win_condition" needs to be either "standard" or "corners".')
+                sys.exit(1)
+        except KeyError as e:
+            print('Setting "win_condition" not found under grid settings. Please your config.json')
+        except Exception as e:
+            print(type(e).__name__, e)
+            sys.exit(1)
 
     def validate_players(self, config):
         """Validates players from the config file and returns a list of

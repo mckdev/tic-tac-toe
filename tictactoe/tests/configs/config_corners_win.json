@@ -1,20 +1,21 @@
 {
+
     "grid": {
-        "size": 2,
-        "win_condition": "standard"
+        "size": 3,
+        "win_condition": "corners"
     },
     
     "players": {
         "Player 1":{
-            "char": "O",
-            "ai": false
-        },
-        "Player 2":{
             "char": "X",
             "ai": false
         },
+        "Player 2":{
+            "char": "O",
+            "ai": false
+        },
         "Player 3":{
-            "char": "V",
+            "char": "#",
             "ai": true
         }
     }
