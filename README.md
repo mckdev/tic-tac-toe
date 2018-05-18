@@ -48,7 +48,7 @@ Run the tests with:
 To run the game from another application, you can follow these steps:
 
 ```
->>> from tictactoe import GameConfig
+>>> from tictactoe import Game, GameConfig
 >>> config = GameConfig('config.json')
 Loading config from file ...
 >>> config.is_valid()
