@@ -97,7 +97,7 @@ class GameConfig(UserDict):
                 print('Setting "win_condition" needs to be either "standard" or "corners".')
                 sys.exit(1)
         except KeyError as e:
-            print('Setting "win_condition" not found under grid settings. Please your config.json')
+            print('Setting "win_condition" not found under grid settings. Please check your config.json')
         except Exception as e:
             print(type(e).__name__, e)
             sys.exit(1)
