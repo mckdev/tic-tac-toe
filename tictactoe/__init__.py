@@ -3,3 +3,4 @@ from .game import Game
 from .grid import Grid
 from .player import Player
 from .referee import Referee
+from . import __main__
