@@ -111,7 +111,7 @@ class GameConfig(UserDict):
         Args:
             players (list): List of player dicts produced by validate_players.
         """
-            try:
+        try:
             # Create a list of chars from the players dictionary.
             chars = [ player['char'].strip() for player in players ]
             # Strip is used to avoid whitespaces being counted as characters.
